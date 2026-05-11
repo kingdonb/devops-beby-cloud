@@ -1,7 +1,7 @@
 #!/bin/bash
 # check_talos.sh - Probes a list of IPs for Talos API presence
 
-IPS=${@:-"192.168.2.1 192.168.2.4 192.168.2.5 192.168.2.6 192.168.2.7 192.168.2.8 192.168.2.9 192.168.2.10 192.168.2.11 192.168.2.12 192.168.2.220"}
+IPS=${@:-"192.168.2.101 192.168.2.102 192.168.2.103"}
 
 echo "Checking for Talos API on potential nodes..."
 printf "%-15s %-10s %-10s\n" "IP" "Port 50000" "Port 50001"
