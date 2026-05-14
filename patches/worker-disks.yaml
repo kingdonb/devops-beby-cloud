@@ -1,0 +1,24 @@
+# Worker disk layout: EPHEMERAL (containerd state + kubelet) on NVMe (40GiB) + Linstor remainder (~85GiB).
+# Workers do not run etcd — losing EPHEMERAL is less painful (pods are rescheduled).
+#   talosctl -n 192.168.2.102 patch mc --dry-run -p @patches/worker-disks.yaml
+#   talosctl -n 192.168.2.102 patch mc          -p @patches/worker-disks.yaml
+# Repeat for 192.168.2.103. Roll them one at a time, not in parallel.
+
+apiVersion: v1alpha1
+kind: VolumeConfig
+name: EPHEMERAL
+provisioning:
+  diskSelector:
+    match: disk.transport == "nvme"
+  minSize: 60GiB
+  maxSize: 60GiB
+  grow: false
+---
+apiVersion: v1alpha1
+kind: RawVolumeConfig
+name: linstor
+provisioning:
+  diskSelector:
+    match: disk.transport == "nvme"
+  minSize: 60GiB
+  grow: true
