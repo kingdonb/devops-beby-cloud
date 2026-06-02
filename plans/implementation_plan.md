@@ -74,21 +74,21 @@ To provide a competitive user experience with immediate cost feedback (unlike Co
 
 ```
 [Open WebUI] ---> [Custom Cost-Accounting Proxy] ---> [LiteLLM] ---> [Groq / OpenRouter]
-                      (Alert on 16% Quota)
+                      (Real-Time Quota Tracking)
 ```
 
 ### Step 1: Deploy Open WebUI & LiteLLM
 1.  Utilize `gpt.beby.cloud` for Open WebUI admin-mode prototyping.
 2.  Deploy LiteLLM inside the cluster to handle query routing.
-3.  Configure LiteLLM with fallback backends: local Hailo NPU for small queries, and external APIs (Groq, OpenRouter) for heavy frontier models.
+3.  Configure LiteLLM with fallback backends: local NPU for small queries, and external APIs (Groq, OpenRouter) for heavy frontier models.
 
-### Step 2: Implement Real-Time Cost Accounting & Alerts
+### Step 2: Implement Real-Time Cost Accounting & Pacing Alerts
 1.  **Cost-Accounting Hook:** Insert a lightweight middleware proxy between Open WebUI and LiteLLM.
 2.  **Streaming Token Estimator:** As LLM responses stream, the proxy calculates the exact cost in real-time based on input/output token counts.
-3.  **The 16% Warning System:**
-    - The proxy tracks the user's monthly budget.
-    - If a single conversation or cumulative daily use consumes more than **16% of the monthly quota**, the proxy injects an immediate inline alert block into the stream or triggers a Slack/system notification.
-    - Prevents runaway costs and lets users visualize their pacing in real time.
+3.  **Real-Time Quota Tracking & Daily Pacing System:**
+    - The proxy tracks the user's monthly and daily targets (e.g. daily pacing limit to prevent exhausting the budget on day one).
+    - It reports usage with sub-second latency immediately after every request, rendering a visual progress gauge (similar to the legacy Gemini Code quota meter) directly in the UI.
+    - If daily usage rate outpaces the target daily fraction (e.g. exceeding 3.3% in a single day, indicating rapid exhaustion), it injects an immediate warning/inline notification to alert the user to pace their usage.
 
 ### Step 3: RTK & Caveman Token Savers
 1.  **RTK (Rust Token Killer):** Compresses CLI/shell outputs by 60–90% before forwarding them to the LLM.

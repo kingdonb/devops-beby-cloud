@@ -27,9 +27,9 @@
 
 ---
 
-### Act 5: Real-Time Cost Safeguards (Enforcing Budgets)
-*   **Visual:** A user session in progress. As lines of text stream in, a real-time token estimator calculates the session cost. A warning pops up: "Attention: 16% of monthly quota reached. Budget limit enforced."
-*   **Narrative:** Compute is not free, and public/private allocations are scarce. Instead of waiting for delayed billing statements, the unified gateway calculates token usage in near-real-time. We enforce active alerts at the 16% quota threshold to prevent a single user from running away with the month's budget.
+### Act 5: Real-Time Cost Safeguards (Visual Quota Tracking)
+*   **Visual:** A user session interface showing a live token quota meter that updates with sub-second latency immediately after every prompt, including a daily pacing tracker and instant notifications if usage outpaces the daily target budget.
+*   **Narrative:** Compute is not free, and public/private allocations are scarce. Instead of waiting for delayed billing statements (like Copilot's hour-long lag), the unified gateway calculates and displays token usage in near-real-time. Sub-second feedback allows users to see the cost of their immediate request, while daily pacing indicators warn them before they burn through their month's allocation.
 
 ---
 
