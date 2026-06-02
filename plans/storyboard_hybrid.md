@@ -1,7 +1,7 @@
 # Storyboard: Pre-Flight Edge AI & Accountable Hybrid Clouds
-## Safeguarding Scarce Resources on NASA-Scale Infrastructure
+## Safeguarding Scarce Resources on High-Value Hybrid Infrastructure
 
-![Storyboard Infographic](nasa_cloud_storyboard.png)
+![Storyboard Infographic](hybrid_cloud_storyboard.png)
 
 ---
 
@@ -19,7 +19,7 @@
 
 ### Act 3: Pre-Flight Testing on the Baby Cloud (The Sandbox)
 *   **Visual:** A side-by-side comparison. On the left: a safe, instant soft-reboot on the $100 `beby.cloud` edge cluster ("Baby Dragon"). On the right: a multi-hour physical trip to the space center.
-*   **Narrative:** To ensure we don't cause our 100th crash on expensive, scarce NASA hardware, we mandate "pre-flight testing." We run driver experiments on our low-power Raspberry Pi CM5 edge cluster first. When we make a mistake and trigger a panic, we recover instantly on cheap sandbox hardware, keeping production MTTR at zero.
+*   **Narrative:** To ensure we don't cause our 100th crash on expensive, scarce production hardware, we mandate "pre-flight testing." We run driver experiments on our low-power Raspberry Pi CM5 edge cluster first. When we make a mistake and trigger a panic, we recover instantly on cheap sandbox hardware, keeping production MTTR at zero.
 
 ---
 
