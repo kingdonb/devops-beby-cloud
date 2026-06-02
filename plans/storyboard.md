@@ -1,6 +1,8 @@
 # Storyboard: The Baby Cloud & The Baby Dragon
 ## Demonstrating Responsible Stewardship on beby.cloud
 
+![Storyboard Infographic](beby_cloud_storyboard.png)
+
 ---
 
 ### Act 1: The Threat of "King of the Mountain" (Goliath)
