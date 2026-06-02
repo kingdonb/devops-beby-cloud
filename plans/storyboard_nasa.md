@@ -1,6 +1,8 @@
 # Storyboard: Pre-Flight Edge AI & Accountable Hybrid Clouds
 ## Safeguarding Scarce Resources on NASA-Scale Infrastructure
 
+![Storyboard Infographic](nasa_cloud_storyboard.png)
+
 ---
 
 ### Act 1: The Expert's Choice (Windows & Hybrid Clusters)
